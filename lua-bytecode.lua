@@ -1338,8 +1338,8 @@ local function parse_or_convert_bytecode(bytecode_as_string_or_loader, convert_t
          for j = 1, math.min(10, #data_in_file) do
             location_in_file = location_in_file..(" %02X"):format(data_in_file:byte(j))
          end
-         local target_length = #"+FFFF:Size=A: 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F"
-         if #data_in_file > 10 or #location_in_file > target_length then
+         local target_length = #"+FFFF:Size=A: 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F 10 11 12 13 14 15 16 17 18 19 1A 1B 1C 1D 1E 1F"
+         if #data_in_file > 30 or #location_in_file > target_length then
             location_in_file = location_in_file:sub(1, target_length - 3).."..."
          end
          location_in_file = location_in_file..(" "):rep(target_length - #location_in_file)
